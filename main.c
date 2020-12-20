@@ -24,19 +24,12 @@ int main(int argc, char *argv[])
 	}
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
-		while (line[0] == 32)
-		{
-			line++;
-		}
-		if (line[0] == '\0')
-		{
-			break;
-		}
 		token = strtok(line, TOKEN_DELIM);
 		token_2 = strtok(NULL, TOKEN_DELIM);
 		if (token_2 != NULL)
 			number = atoi(token_2);
-		search_function(token, line_n, &head);
+        if (token && token[0] != '#')
+		    search_function(token, line_n, &head);
 		line_n++;
 	}
 	free(line);

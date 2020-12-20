@@ -42,8 +42,8 @@ typedef struct instruction_s
 
 
 int search_function(char *, unsigned int, stack_s **);
-int f_push(stack_s **stack, unsigned int line_number);
-int f_pall(stack_s **stack, unsigned int line_number);
+void f_push(stack_s **stack, unsigned int line_number);
+void f_pall(stack_s **stack, unsigned int line_number);
 stack_s *new_node(stack_s **);
 
 #endif

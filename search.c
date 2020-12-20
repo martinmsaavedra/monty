@@ -17,17 +17,17 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 	return (0);
 }
 
-int f_push(stack_s **stack, unsigned int line_number)
+void f_push(stack_s **stack, unsigned int line_number)
 {
 	stack_s *new = NULL;
 
 	(void) line_number;
 	if (!stack)
-		return (EXIT_FAILURE);
+		return;
 
 	new = malloc(sizeof(stack_s));
 	if (!new)
-		return (EXIT_FAILURE);
+		return;
 	new->n = number;
 	new->prev = NULL;
 	new->next = *stack;
@@ -37,9 +37,9 @@ int f_push(stack_s **stack, unsigned int line_number)
 	}
 
 	*stack = new;
-	return (0);
+	return;
 }
-int f_pall(stack_s **stack, unsigned int line_number)
+void f_pall(stack_s **stack, unsigned int line_number)
 {
 	
 	size_t counter = 0;
@@ -48,7 +48,7 @@ int f_pall(stack_s **stack, unsigned int line_number)
 	(void) line_number;
 	if (stack == NULL)
 	{
-		return (0);
+		return;
 	}
 	aux = *stack;
 
@@ -58,5 +58,5 @@ int f_pall(stack_s **stack, unsigned int line_number)
 		aux = aux->next;
 		counter++;
 	}
-	return (counter);
+	return;
 }
