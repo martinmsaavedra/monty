@@ -23,11 +23,11 @@ void f_push(stack_s **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (!stack)
-		return;
+		exit(EXIT_FAILURE);
 
 	new = malloc(sizeof(stack_s));
 	if (!new)
-		return;
+		exit(EXIT_FAILURE);
 	new->n = number;
 	new->prev = NULL;
 	new->next = *stack;
@@ -39,6 +39,8 @@ void f_push(stack_s **stack, unsigned int line_number)
 	*stack = new;
 	return;
 }
+
+
 void f_pall(stack_s **stack, unsigned int line_number)
 {
 	
@@ -48,7 +50,7 @@ void f_pall(stack_s **stack, unsigned int line_number)
 	(void) line_number;
 	if (stack == NULL)
 	{
-		return;
+		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
 
