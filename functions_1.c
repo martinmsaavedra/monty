@@ -3,7 +3,7 @@
 
 int search_function(char *token, unsigned int line_n, stack_s **head)
 {
-	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {NULL, NULL} };
+	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {"pint", f_pint}, {"pop", f_pop}, {"nop", f_nop}, {NULL, NULL} };
 	int i = 0;
 	while(options[i].opcode != NULL)
 	{
@@ -43,8 +43,6 @@ void f_push(stack_s **stack, unsigned int line_number)
 
 void f_pall(stack_s **stack, unsigned int line_number)
 {
-	
-	size_t counter = 0;
 	stack_s *aux;
 
 	(void) line_number;
@@ -58,7 +56,34 @@ void f_pall(stack_s **stack, unsigned int line_number)
 	{
 		printf("%i\n", aux->n);
 		aux = aux->next;
-		counter++;
 	}
+	return;
+}
+
+void f_pint(stack_s **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%i\n", (*stack)->n);
+
+	return;
+}
+
+void f_pop(stack_s **stack, unsigned int line_number)
+{
+	stack_s *aux;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	aux = *stack;
+	*stack = (*stack)->next;
+	free(aux);
 	return;
 }
