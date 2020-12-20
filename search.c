@@ -1,9 +1,9 @@
 #include "monty.h"
 
 
-int search_opcode(char *token, unsigned int line_n, stack_s **head)
+int search_function(char *token, unsigned int line_n, stack_s **head)
 {
-	instruction_t options[] = { {"pall", f_pall},{"push", f_push}, {NULL, NULL} };
+	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {NULL, NULL} };
 	int i = 0;
 	while(options[i].opcode != NULL)
 	{
@@ -17,41 +17,46 @@ int search_opcode(char *token, unsigned int line_n, stack_s **head)
 	return (0);
 }
 
-void f_push(stack_s **stack, unsigned int line_number)
+int f_push(stack_s **stack, unsigned int line_number)
 {
-	(void) stack;
-	(void) line_number;
-/*	stack_s *node;*/
-/*	node = new_node(stack);*/
-	printf("El comando es un push y el number es %d\n",number);
-}
-void f_pall(stack_s **stack, unsigned int line_number)
-{
-	(void) stack;
-	(void) line_number;
-	printf("es un pall\n");
-}
+	stack_s *new = NULL;
 
-/*
-stack_s *new_node(stack_s **head)
-{
-	stack_s *new;
+	(void) line_number;
+	if (!stack)
+		return (EXIT_FAILURE);
 
-	new = (stack_s *)malloc(sizeof(stack_s *));
-	if (new == NULL)
-	{
-		fprintf(stderr,"Error allocation");
-		exit(EXIT_FAILURE);
-	}
+	new = malloc(sizeof(stack_s));
+	if (!new)
+		return (EXIT_FAILURE);
 	new->n = number;
-	new->next = NULL;
-	if (head == NULL)
+	new->prev = NULL;
+	new->next = *stack;
+	if (*stack != NULL)
 	{
-		new->prev = NULL;
-		*head = new;
+		(*stack)->prev = new;
 	}
-	else
-		new->prev = *head;
-	printf("se agrego el push a la cola con el numero:%d\n", new->n);
-	return (new);
-}*/
+
+	*stack = new;
+	return (0);
+}
+int f_pall(stack_s **stack, unsigned int line_number)
+{
+	
+	size_t counter = 0;
+	stack_s *aux;
+
+	(void) line_number;
+	if (stack == NULL)
+	{
+		return (0);
+	}
+	aux = *stack;
+
+	while (aux)
+	{
+		printf("%i\n", aux->n);
+		aux = aux->next;
+		counter++;
+	}
+	return (counter);
+}
