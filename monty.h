@@ -2,10 +2,13 @@
 #define MONTY_H
 
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <stdbool.h>
-
+#include <sys/stat.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <fcntl.h>
+extern int number;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -20,7 +23,7 @@ typedef struct stack_s
         int n;
         struct stack_s *prev;
         struct stack_s *next;
-} stack_t;
+} stack_s;
 
 /**
  * struct instruction_s - opcode and its function
@@ -30,11 +33,16 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
  */
+
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+    char *opcode;
+	void (*f)(stack_s **stack, unsigned int line_number);
 } instruction_t;
 
+int search_opcode(char *, unsigned int, stack_s **);
+void f_push(stack_s **stack, unsigned int line_number);
+void f_pall(stack_s **stack, unsigned int line_number);
+stack_s *new_node(stack_s **);
 
 #endif
