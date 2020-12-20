@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <ctype.h>
+
 extern int number;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,6 +46,6 @@ typedef struct instruction_s
 int search_function(char *, unsigned int, stack_s **);
 void f_push(stack_s **stack, unsigned int line_number);
 void f_pall(stack_s **stack, unsigned int line_number);
-stack_s *new_node(stack_s **);
+void check_token(char *token, unsigned int line_n);
 
 #endif

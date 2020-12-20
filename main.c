@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 	{
 		token = strtok(line, TOKEN_DELIM);
 		token_2 = strtok(NULL, TOKEN_DELIM);
-		if (token_2 != NULL)
-			number = atoi(token_2);
+        if (strcmp(token, "push") == 0)
+            check_token(token_2, line_n);
         if (token && token[0] != '#')
 		    search_function(token, line_n, &head);
 		line_n++;
