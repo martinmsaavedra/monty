@@ -110,18 +110,27 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 
 void f_pstr(stack_s **stack, unsigned int line_number)
 {
-	(void)line_number;
+	stack_s *aux = *stack;
 
+	(void)line_number;
 	if (*stack == NULL)
 		printf("\n");
 
-	while ((*stack))
+	/*while ((*stack))
 	{
 		if (isalpha((int)(*stack)->n) == 0 || (*stack)->n == 0) 
 			break;
 		
 		printf("%c", (*stack)->n);
 		(*stack) = (*stack)->next;
+	}*/
+	while ((aux))
+	{
+		if (isalpha((int)(aux)->n) == 0 || (aux)->n == 0) 
+			break;
+		
+		printf("%c", aux->n);
+		aux = aux->next;
 	}
 	printf("\n");
 }
