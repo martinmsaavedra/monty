@@ -203,15 +203,14 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 
 	(void)line_number;
 	aux = *stack;
-	 temp = aux->n;
-
-	while (aux)
+	temp = aux->n;
+	printf("%d\n", temp);
+	while (aux->next)
 		aux = aux->next;
 	
 	temp2 = aux->n;
+	printf("%d\n", temp2);
 	aux->n = temp;
-
-	while(aux->prev)
-		aux = aux->prev;
-	aux->n = temp2; 
+	aux = *stack;
+	aux->n = temp2;
 }
