@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	unsigned int line_n = 1;
 	char *token = NULL, *token_2, *line = NULL;
 	stack_s *head = NULL;
+	int count = 0;
 
 	if (argc != 2)
 	{
@@ -25,7 +26,11 @@ int main(int argc, char *argv[])
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
         while (line[0] == 32) 
-             line++;
+		{
+				count++;
+				line++;
+		}
+             
          if (line[0] == '\n' || line[0] == '\0') 
              continue;
 		token = strtok(line, TOKEN_DELIM);
@@ -36,6 +41,10 @@ int main(int argc, char *argv[])
         if (token && token[0] != '#')
 		    search_function(token, line_n, &head);
 		line_n++;
+	}
+	for (; count > 0; count--)
+	{
+		line--;
 	}
 	free(line);
 	free_stack(head);	
