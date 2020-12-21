@@ -4,7 +4,7 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 {
 	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {"pint", f_pint}, {"pop", f_pop}, {"swap", f_swap}, {"add", f_add}, 
 								{"sub", f_sub}, {"div", f_div}, {"mul", f_mul}, {"mod", f_mod}, {"pchar", f_pchar},
-								{"pstr", f_pstr}, {"nop", f_nop}, {"rotl", f_rotl}, {NULL, NULL} };
+								{"pstr", f_pstr}, {"nop", f_nop}, {"rotl", f_rotl}, {"rotr", f_rotr}, {NULL, NULL} };
 	int i = 0;
 	while(options[i].opcode != NULL)
 	{
@@ -92,19 +92,21 @@ void f_pop(stack_s **stack, unsigned int line_number)
 
 void f_pchar(stack_s **stack, unsigned int line_number)
 {
-	if (*stack == NULL)
+	stack_s *aux = *stack;
+	
+	if (aux == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-		free_stack(*stack);
+		free_stack(aux);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n < 0 || (*stack)->n > 127)
+	if (aux->n < 0 || aux->n > 127)
 		{
 			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-			free_stack(*stack);
+			free_stack(aux);
 			exit(EXIT_FAILURE);
 		}
-	putchar((*stack)->n);
+	putchar(aux->n);
 	putchar('\n');
 }
 
