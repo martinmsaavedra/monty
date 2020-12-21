@@ -102,7 +102,7 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	if (isalpha((int)(*stack)->n) != 0)
+	if (isascii((int)(*stack)->n) != 0)
 		printf("%c\n", (*stack)->n);
 	else
 	{
