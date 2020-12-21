@@ -14,19 +14,14 @@ void check_token(char *token, unsigned int line_n)
             }    
             else
             {
-                j = 1;
-                /*break;*/
+                fprintf(stderr, "L%u: usage: push integer\n", line_n);
+			    exit(EXIT_FAILURE);
             }
         }
         if (j == 0)
         {
             number = atoi(token);
             return;
-        }
-        else 
-        {
-            fprintf(stderr, "L%u: usage: push integer\n", line_n);
-			exit(EXIT_FAILURE); 
         }
     }
     else
