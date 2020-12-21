@@ -40,6 +40,8 @@ void f_push(stack_s **stack, unsigned int line_number)
 	new->n = number;
 	new->prev = NULL;
 	new->next = *stack;
+	if (new->next != NULL)
+		(new->next)->prev = new;
 	if (*stack != NULL)
 		(*stack)->prev = new;
 	*stack = new;
