@@ -59,4 +59,5 @@ void f_div(stack_s **stack, unsigned int line_number);
 void f_mod(stack_s **stack, unsigned int line_number);
 void f_pchar(stack_s **stack, unsigned int line_number);
 void f_pstr(stack_s **stack, unsigned int line_number);
+void free_stack(stack_s *head);
 #endif

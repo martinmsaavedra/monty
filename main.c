@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 		line_n++;
 	}
 	free(line);
+	free_stack(head);	
 	fclose(stream);
 	exit(EXIT_SUCCESS);
 }

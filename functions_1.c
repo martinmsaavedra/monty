@@ -23,11 +23,16 @@ void f_push(stack_s **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (!stack)
+	{
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
-
+	}
 	new = malloc(sizeof(stack_s));
 	if (!new)
+	{
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
+	}
 	new->n = number;
 	new->prev = NULL;
 	new->next = *stack;
@@ -44,8 +49,10 @@ void f_pall(stack_s **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (stack == NULL)
+	{
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
-	
+	}
 	aux = *stack;
 
 	while (aux)
@@ -61,6 +68,7 @@ void f_pint(stack_s **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
@@ -74,6 +82,7 @@ void f_pop(stack_s **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
@@ -87,6 +96,7 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (isalpha((int)(*stack)->n) != 0)
@@ -94,6 +104,7 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	return;
