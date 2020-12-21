@@ -171,7 +171,7 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	if (*stack != NULL)
+	if (stack != NULL)
 	{
 		new = malloc(sizeof(stack_s));
 		if (!new)
@@ -191,6 +191,7 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 		aux->next = new;
 		new->n = temp;
 		new->prev = aux;
+		new->next = NULL;
 	}
 	
 }
