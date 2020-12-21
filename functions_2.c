@@ -199,10 +199,12 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 void f_rotr(stack_s **stack, unsigned int line_number)
 {
 	stack_s *aux;
+	int stack_len = 0;
 	unsigned int temp, temp2;
 
 	(void)line_number;
-	if (*stack != NULL)
+	stack_len = list_len(stack);
+	if (*stack != NULL && stack_len >= 2)
 	{
 		aux = *stack;
 		temp = aux->n;
