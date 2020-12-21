@@ -14,7 +14,7 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_n, token);
 	free_stack(*head);
 	exit(EXIT_FAILURE);
 }
