@@ -15,6 +15,7 @@ void check_token(char *token, unsigned int line_n)
             else
             {
                 j = 1;
+                break;
             }
         }
         if (j == 0)
@@ -34,4 +35,4 @@ void check_token(char *token, unsigned int line_n)
 		exit(EXIT_FAILURE); 
     }
     
-    }
+}
