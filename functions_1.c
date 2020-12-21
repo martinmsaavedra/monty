@@ -96,7 +96,7 @@ void f_pop(stack_s **stack, unsigned int line_number)
 
 void f_pchar(stack_s **stack, unsigned int line_number)
 {
-	if (*stack == NULL || !stack)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		free_stack(*stack);
@@ -108,12 +108,8 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-	else
-	{
 		putchar((*stack)->n);
 		putchar('\n');
-	}
-	return;
 }
 
 void f_pstr(stack_s **stack, unsigned int line_number)
