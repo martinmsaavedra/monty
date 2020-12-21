@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void check_token(char *token, unsigned int line_n, stack_s *head, char *line, FILE *stream)
+void check_token(char *token, unsigned int line_n)
 {
     int i = 0, j;
 
@@ -8,14 +8,14 @@ void check_token(char *token, unsigned int line_n, stack_s *head, char *line, FI
     {
         for (; token[i] != '\0'; i++)
         {
-            if (token[i] >= 48 && token[i] <= 57)
+            if ((token[i] >= 48 && token[i] <= 57) || token[i] == 45)
             {
                 j = 0;
             }    
             else
             {
                 j = 1;
-                /*break;*/
+                break;
             }
         }
         if (j == 0)
@@ -26,19 +26,13 @@ void check_token(char *token, unsigned int line_n, stack_s *head, char *line, FI
         else 
         {
             fprintf(stderr, "L%u: usage: push integer\n", line_n);
-            free(line);
-			free_stack(head);
-            fclose(stream);
             exit(EXIT_FAILURE); 
         }
     }
     else
     {
         fprintf(stderr, "L%u: usage: push integer\n", line_n);
-        free(line);
-        free_stack(head);
-        fclose(stream);
-		exit(EXIT_FAILURE); 
+        exit(EXIT_FAILURE); 
     }
     
 }
