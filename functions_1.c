@@ -3,7 +3,8 @@
 int search_function(char *token, unsigned int line_n, stack_s **head)
 {
 	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {"pint", f_pint}, {"pop", f_pop}, {"swap", f_swap}, {"add", f_add}, 
-								{"sub", f_sub}, {"div", f_div}, {"mul", f_mul}, {"mod", f_mod}, {"pchar", f_pchar}, {"pstr", f_pstr}, {"nop", f_nop}, {NULL, NULL} };
+								{"sub", f_sub}, {"div", f_div}, {"mul", f_mul}, {"mod", f_mod}, {"pchar", f_pchar},
+								{"pstr", f_pstr}, {"nop", f_nop}, {"rotl", f_rotl}, {NULL, NULL} };
 	int i = 0;
 	while(options[i].opcode != NULL)
 	{
