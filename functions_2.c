@@ -124,7 +124,7 @@ void f_div(stack_s **stack, unsigned int line_number)
 
 	if (len < 2)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
