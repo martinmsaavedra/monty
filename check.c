@@ -22,7 +22,6 @@ void check_token(char *token, unsigned int line_n)
             number = atoi(token);
             return;
         }
-            
         else 
         {
             fprintf(stderr, "L%u: usage: push integer\n", line_n);

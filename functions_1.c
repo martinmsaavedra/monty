@@ -41,7 +41,8 @@ void f_push(stack_s **stack, unsigned int line_number)
 	new->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new;
-
+	if (new->next)
+		new->next->prev = new;
 	*stack = new;
 	return;
 }
@@ -108,8 +109,8 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-		putchar((*stack)->n);
-		putchar('\n');
+	putchar((*stack)->n);
+	putchar('\n');
 }
 
 void f_pstr(stack_s **stack, unsigned int line_number)
