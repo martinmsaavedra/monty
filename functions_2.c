@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void f_nop(stack_t **stack, unsigned int line_number)
+void f_nop(stack_s **stack, unsigned int line_number)
 {
     (void)stack;
     (void)line_number;
@@ -8,9 +8,9 @@ void f_nop(stack_t **stack, unsigned int line_number)
     return;
 }
 
-void f_swap(stack_t **stack, unsigned int line_number)
+void f_swap(stack_s **stack, unsigned int line_number)
 {
-    stack_t *aux;
+    stack_s *aux;
     size_t len = 0;
     unsigned int temp;
 
@@ -29,10 +29,10 @@ void f_swap(stack_t **stack, unsigned int line_number)
 	return;
 }
 
-size_t list_len(stack_t **h)
+size_t list_len(stack_s **h)
 {
 	size_t counter = 0;
-	stack_t *aux;
+	stack_s *aux;
 
 	if (*h == NULL)
 	{
@@ -48,9 +48,9 @@ size_t list_len(stack_t **h)
 	return (counter);
 }
 
-void f_add(stack_t **stack, unsigned int line_number)
+void f_add(stack_s **stack, unsigned int line_number)
 {
-    stack_t *temp_node;
+    stack_s *temp_node;
     size_t len = 0;
     unsigned int temp;
 
@@ -70,9 +70,9 @@ void f_add(stack_t **stack, unsigned int line_number)
 	return;
 }
 
-void f_sub(stack_t **stack, unsigned int line_number)
+void f_sub(stack_s **stack, unsigned int line_number)
 {
-    stack_t *temp_node;
+    stack_s *temp_node;
     size_t len = 0;
     unsigned int temp;
 
@@ -92,9 +92,9 @@ void f_sub(stack_t **stack, unsigned int line_number)
 	return;
 }
 
-void f_mul(stack_t **stack, unsigned int line_number)
+void f_mul(stack_s **stack, unsigned int line_number)
 {
-    stack_t *temp_node;
+    stack_s *temp_node;
     size_t len = 0;
     unsigned int temp;
 
@@ -114,9 +114,9 @@ void f_mul(stack_t **stack, unsigned int line_number)
 	return;
 }
 
-void f_div(stack_t **stack, unsigned int line_number)
+void f_div(stack_s **stack, unsigned int line_number)
 {
-    stack_t *temp_node;
+    stack_s *temp_node;
     size_t len = 0;
     unsigned int temp;
 
@@ -143,9 +143,9 @@ void f_div(stack_t **stack, unsigned int line_number)
 	return;
 }
 
-void f_mod(stack_t **stack, unsigned int line_number)
+void f_mod(stack_s **stack, unsigned int line_number)
 {
-	stack_t *temp_node;
+	stack_s *temp_node;
 	size_t len = 0;
 	unsigned int temp;
 
