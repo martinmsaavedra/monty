@@ -202,13 +202,17 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 	unsigned int temp, temp2;
 
 	(void)line_number;
-	aux = *stack;
-	temp = aux->n;
-	while (aux->next)
-		aux = aux->next;
-	
-	temp2 = aux->n;
-	aux->n = temp;
-	aux = *stack;
-	aux->n = temp2;
+	if (*stack != NULL)
+	{
+		aux = *stack;
+		temp = aux->n;
+		while (aux->next)
+			aux = aux->next;
+		
+		temp2 = aux->n;
+		aux->n = temp;
+		aux = *stack;
+		aux->n = temp2;
+	}
+	return;
 }
