@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         /*printf("%s\n", token);*/
 		token_2 = strtok(NULL, TOKEN_DELIM);
         if (strcmp(token, "push") == 0)
-            check_token(token_2, line_n);
+            check_token(token_2, line_n, head, line, stream);
         if (token && token[0] != '#')
 		    search_function(token, line_n, &head);
 		line_n++;

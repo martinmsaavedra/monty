@@ -46,7 +46,7 @@ typedef struct instruction_s
 int search_function(char *, unsigned int, stack_s **);
 void f_push(stack_s **stack, unsigned int line_number);
 void f_pall(stack_s **stack, unsigned int line_number);
-void check_token(char *token, unsigned int line_n);
+void check_token(char *token, unsigned int line_n, stack_s *head, char *, FILE *);
 void f_pint(stack_s **stack, unsigned int line_number);
 void f_pop(stack_s **stack, unsigned int line_number);
 void f_nop(stack_s **stack, unsigned int line_number);

@@ -1,4 +1,5 @@
 push 345
-push 56789fg343
-push 3
+push 56789
+pall
+push 3j
 pall 
