@@ -116,8 +116,10 @@ void f_pstr(stack_s **stack, unsigned int line_number)
 
 	(void)line_number;
 	if (*stack == NULL)
+	{
 		printf("\n");
-
+		return;
+	}	
 	while ((aux))
 	{
 		if (isalpha((int)(aux)->n) == 0 || (aux)->n == 0) 
