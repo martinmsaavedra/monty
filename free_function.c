@@ -1,8 +1,8 @@
 #include "monty.h"
 
-void free_stack(stack_s *head)
+void free_stack(stack_t *head)
 {
-	stack_s *tmp;
+	stack_t *tmp;
 
 	while (head != NULL)
 	{

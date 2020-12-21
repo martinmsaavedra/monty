@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int search_function(char *token, unsigned int line_n, stack_s **head)
+int search_function(char *token, unsigned int line_n, stack_t **head)
 {
 	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {"pint", f_pint}, {"pop", f_pop}, {"swap", f_swap}, {"add", f_add}, 
 								{"sub", f_sub}, {"div", f_div}, {"mul", f_mul}, {"mod", f_mod}, {"pchar", f_pchar}, {"pstr", f_pstr}, {"nop", f_nop}, {NULL, NULL} };
@@ -17,9 +17,9 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 	return (0);
 }
 
-void f_push(stack_s **stack, unsigned int line_number)
+void f_push(stack_t **stack, unsigned int line_number)
 {
-	stack_s *new = NULL;
+	stack_t *new = NULL;
 
 	(void) line_number;
 	if (!stack)
@@ -27,7 +27,7 @@ void f_push(stack_s **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	new = malloc(sizeof(stack_s));
+	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		free_stack(*stack);
@@ -43,9 +43,9 @@ void f_push(stack_s **stack, unsigned int line_number)
 	return;
 }
 
-void f_pall(stack_s **stack, unsigned int line_number)
+void f_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_s *aux;
+	stack_t *aux;
 
 	(void) line_number;
 	if (stack == NULL)
@@ -63,7 +63,7 @@ void f_pall(stack_s **stack, unsigned int line_number)
 	return;
 }
 
-void f_pint(stack_s **stack, unsigned int line_number)
+void f_pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -75,9 +75,9 @@ void f_pint(stack_s **stack, unsigned int line_number)
 	return;
 }
 
-void f_pop(stack_s **stack, unsigned int line_number)
+void f_pop(stack_t **stack, unsigned int line_number)
 {
-	stack_s *aux;
+	stack_t *aux;
 
 	if (*stack == NULL)
 	{
@@ -91,7 +91,7 @@ void f_pop(stack_s **stack, unsigned int line_number)
 	return;
 }
 
-void f_pchar(stack_s **stack, unsigned int line_number)
+void f_pchar(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -110,7 +110,7 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 	return;
 }
 
-void f_pstr(stack_s **stack, unsigned int line_number)
+void f_pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
