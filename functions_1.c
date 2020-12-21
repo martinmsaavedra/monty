@@ -14,7 +14,9 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 		}
 		i++;
 	}
-	return (0);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
 }
 
 void f_push(stack_s **stack, unsigned int line_number)
@@ -30,6 +32,7 @@ void f_push(stack_s **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_s));
 	if (!new)
 	{
+		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
