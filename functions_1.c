@@ -110,7 +110,7 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 		}
 	else
 	{
-		putchar((int)(*stack)->n);
+		putchar((*stack)->n);
 		putchar('\n');
 	}
 	return;
