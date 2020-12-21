@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	ssize_t nread;
 	unsigned int line_n = 1;
 	char *token = NULL, *token_2, *line = NULL;
-	stack_s *head = NULL;
+	stack_t *head = NULL;
     
 	if (argc != 2)
 	{
