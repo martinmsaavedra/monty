@@ -101,14 +101,10 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 
 void f_pstr(stack_s **stack, unsigned int line_number)
 {
-	/*stack_s *aux;*/
-
 	(void)line_number;
 
 	if (*stack == NULL)
 		printf("\n");
-	
-	/*aux = *stack;*/
 
 	while ((*stack))
 	{
