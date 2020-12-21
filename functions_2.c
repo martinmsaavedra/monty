@@ -4,8 +4,6 @@ void f_nop(stack_s **stack, unsigned int line_number)
 {
     (void)stack;
     (void)line_number;
-
-    return;
 }
 
 void f_swap(stack_s **stack, unsigned int line_number)
@@ -26,7 +24,6 @@ void f_swap(stack_s **stack, unsigned int line_number)
 	temp = aux->n;
 	aux->n = aux->next->n;
 	aux->next->n = temp;
-	return;
 }
 
 size_t list_len(stack_s **h)
@@ -67,7 +64,6 @@ void f_add(stack_s **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = temp;
 	free(temp_node);
-	return;
 }
 
 void f_sub(stack_s **stack, unsigned int line_number)
@@ -89,7 +85,6 @@ void f_sub(stack_s **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = temp;
 	free(temp_node);
-	return;
 }
 
 void f_mul(stack_s **stack, unsigned int line_number)
@@ -111,7 +106,6 @@ void f_mul(stack_s **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = temp;
 	free(temp_node);
-	return;
 }
 
 void f_div(stack_s **stack, unsigned int line_number)
@@ -140,7 +134,6 @@ void f_div(stack_s **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = temp;
 	free(temp_node);
-	return;
 }
 
 void f_mod(stack_s **stack, unsigned int line_number)
@@ -169,5 +162,4 @@ void f_mod(stack_s **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = temp;
 	free(temp_node);
-	return;
 }

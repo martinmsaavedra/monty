@@ -41,10 +41,7 @@ void f_push(stack_s **stack, unsigned int line_number)
 	new->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new;
-	if (new->next)
-		new->next->prev = new;
 	*stack = new;
-	return;
 }
 
 void f_pall(stack_s **stack, unsigned int line_number)
@@ -64,7 +61,6 @@ void f_pall(stack_s **stack, unsigned int line_number)
 		printf("%i\n", aux->n);
 		aux = aux->next;
 	}
-	return;
 }
 
 void f_pint(stack_s **stack, unsigned int line_number)
@@ -76,7 +72,6 @@ void f_pint(stack_s **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
-	return;
 }
 
 void f_pop(stack_s **stack, unsigned int line_number)
@@ -92,7 +87,6 @@ void f_pop(stack_s **stack, unsigned int line_number)
 	aux = *stack;
 	*stack = (*stack)->next;
 	free(aux);
-	return;
 }
 
 void f_pchar(stack_s **stack, unsigned int line_number)
@@ -129,5 +123,4 @@ void f_pstr(stack_s **stack, unsigned int line_number)
 		(*stack) = (*stack)->next;
 	}
 	printf("\n");
-	return;
 }
