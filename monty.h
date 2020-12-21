@@ -50,5 +50,13 @@ void check_token(char *token, unsigned int line_n);
 void f_pint(stack_s **stack, unsigned int line_number);
 void f_pop(stack_s **stack, unsigned int line_number);
 void f_nop(stack_s **stack, unsigned int line_number);
-
+void f_swap(stack_s **stack, unsigned int line_number);
+size_t list_len(stack_s **h);
+void f_add(stack_s **stack, unsigned int line_number);
+void f_sub(stack_s **stack, unsigned int line_number);
+void f_mul(stack_s **stack, unsigned int line_number);
+void f_div(stack_s **stack, unsigned int line_number);
+void f_mod(stack_s **stack, unsigned int line_number);
+void f_pchar(stack_s **stack, unsigned int line_number);
+void f_pstr(stack_s **stack, unsigned int line_number);
 #endif
