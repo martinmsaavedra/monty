@@ -166,12 +166,13 @@ void f_mod(stack_s **stack, unsigned int line_number)
 
 void f_rotl(stack_s **stack, unsigned int line_number)
 {
-    stack_s *aux, *new;
-    unsigned int temp;
+	stack_s *aux, *new;
+	unsigned int temp;
+	int stack_len = 0;
 
 	(void)line_number;
-
-	if (stack != NULL)
+	stack_len = list_len(stack);
+	if (*stack != NULL && stack_len >= 2)
 	{
 		new = malloc(sizeof(stack_s));
 		if (!new)
@@ -180,7 +181,6 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-
 		aux = *stack;
 		temp = aux->n;
 		*stack = aux->next;
@@ -193,5 +193,5 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 		new->prev = aux;
 		new->next = NULL;
 	}
-	
+	return;
 }
