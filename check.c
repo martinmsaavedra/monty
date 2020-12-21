@@ -15,7 +15,7 @@ void check_token(char *token, unsigned int line_n)
             else
             {
                 j = 1;
-                break;
+                /*break;*/
             }
         }
         if (j == 0)
