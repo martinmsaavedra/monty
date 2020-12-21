@@ -96,7 +96,7 @@ void f_pop(stack_s **stack, unsigned int line_number)
 
 void f_pchar(stack_s **stack, unsigned int line_number)
 {
-	int num = (*stack)->n
+	int num = (*stack)->n;
 
 	if (*stack == NULL || !stack)
 	{
