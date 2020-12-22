@@ -1,5 +1,9 @@
 #include "monty.h"
-
+/**
+ * check_token - checks if token is a valid number 
+ * @token: token from file
+ * @line_n: line of code of file bytecode
+ **/
 void check_token(char *token, unsigned int line_n)
 {
     int i = 0, j;
