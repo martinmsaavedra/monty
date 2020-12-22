@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * free_stack - free all elements of stack.
- * @stack: head of double linked lisd
+ * @head: head of double linked lisd
  **/
 void free_stack(stack_s *head)
 {

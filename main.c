@@ -6,6 +6,7 @@ int number = 0;
  * main - Main function
  * @argc: Argument count
  * @argv: Argument vector
+ * Return: 0 in success, 1 in error
  **/
 int main(int argc, char *argv[])
 {

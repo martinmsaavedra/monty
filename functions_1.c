@@ -4,20 +4,25 @@
  * @head: head of double linked lisd
  * @line_n: line of code of file bytecode
  * @token: token of input file
- * Returns: 0 on success, 1 on error
+ * Return: 0 on success, 1 on error
  **/
 int search_function(char *token, unsigned int line_n, stack_s **head)
 {
-	instruction_t options[] = { {"pall", f_pall}, {"push", f_push}, {"pint", f_pint}, {"pop", f_pop}, {"swap", f_swap}, {"add", f_add}, 
-								{"sub", f_sub}, {"div", f_div}, {"mul", f_mul}, {"mod", f_mod}, {"pchar", f_pchar},
-								{"pstr", f_pstr}, {"nop", f_nop}, {"rotl", f_rotl}, {"rotr", f_rotr}, {NULL, NULL} };
+	instruction_t options[] = {
+		{"pall", f_pall}, {"push", f_push}, {"pint", f_pint},
+		{"pop", f_pop}, {"swap", f_swap}, {"add", f_add},
+		{"sub", f_sub}, {"div", f_div}, {"mul", f_mul},
+		{"mod", f_mod}, {"pchar", f_pchar}, {"pstr", f_pstr},
+		{"nop", f_nop}, {"rotl", f_rotl}, {"rotr", f_rotr}, {NULL, NULL}
+	};
 	int i = 0;
-	while(options[i].opcode != NULL)
+
+	while (options[i].opcode != NULL)
 	{
 		if (strcmp(options[i].opcode, token) == 0)
 		{
 			options[i].f(head, line_n);
-			return(0);
+			return (0);
 		}
 		i++;
 	}

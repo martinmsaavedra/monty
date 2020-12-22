@@ -93,7 +93,6 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 		new->prev = aux;
 		new->next = NULL;
 	}
-	return;
 }
 
 /**
@@ -121,5 +120,4 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 		aux = *stack;
 		aux->n = temp2;
 	}
-	return;
 }

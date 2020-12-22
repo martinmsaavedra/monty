@@ -25,7 +25,8 @@ void f_add(stack_s **stack, unsigned int line_number)
 	free(temp_node);
 }
 /**
- * f_sub - subtracts the top element of the stack from the second top element of the stack.
+ * f_sub - subtracts the top element of the stack from
+ * the second top element of the stack.
  * @stack: head of double linked lisd
  * @line_number: line of code of file bytecode
  **/
@@ -50,7 +51,8 @@ void f_sub(stack_s **stack, unsigned int line_number)
 	free(temp_node);
 }
 /**
- * f_mul - multiplies the second top element of the stack with the top element of the stack.
+ * f_mul - multiplies the second top element of the stack
+ * with the top element of the stack.
  * @stack: head of double linked lisd
  * @line_number: line of code of file bytecode
  **/
@@ -75,7 +77,8 @@ void f_mul(stack_s **stack, unsigned int line_number)
 	free(temp_node);
 }
 /**
- * f_div - divides the second top element of the stack by the top element of the stack.
+ * f_div - divides the second top element of the
+ * stack by the top element of the stack.
  * @stack: head of double linked lisd
  * @line_number: line of code of file bytecode
  **/
@@ -107,7 +110,8 @@ void f_div(stack_s **stack, unsigned int line_number)
 	free(temp_node);
 }
 /**
- * f_mod - computes the rest of the division of the second top element of the stack by the top element of the stack.
+ * f_mod - computes the rest of the division of the second top
+ * element of the stack by the top element of the stack.
  * @stack: head of double linked lisd
  * @line_number: line of code of file bytecode
  **/
