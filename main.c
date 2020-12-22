@@ -43,8 +43,9 @@ int main(int argc, char *argv[])
 	}
 	for (; count > 0; count--)
 		line--;
-	free(line);
+	
 	free_stack(stack);
 	fclose(stream);
+	free(line);
 	exit(EXIT_SUCCESS);
 }

@@ -1,5 +1,5 @@
 #include "monty.h"
-#define TOKEN_DELIM " \n\r\t "
+#define TOKEN_DELIM " \n\t "
 /**
  * tokenize - tokenize buffer and execute opcode.
  * @line: line of input file
