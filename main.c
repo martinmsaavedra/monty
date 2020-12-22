@@ -1,5 +1,5 @@
 #include "monty.h"
-#define TOKEN_DELIM " \t\n\r "
+/*#define TOKEN_DELIM " \n\r\t "*/
 /* Number = global variable. */
 int number = 0;
 /**
@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t nread;
 	unsigned int line_n = 1;
-	char *token = NULL, *token_2, *line = NULL;
-	stack_s *head = NULL;
+	char *line = NULL;
+	stack_s *stack = NULL;
 	int count = 0;
 
 	if (argc != 2)
@@ -29,29 +29,22 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((nread = getline(&line, &len, stream)) != -1)
+	while ((nread = getline(&line, &len, stream)) != EOF)
 	{
 		while (line[0] == 32)
 		{
 			count++;
 			line++;
 		}
-
 		if (line[0] == '\n' || line[0] == '\0')
 			continue;
-		token = strtok(line, TOKEN_DELIM);
-		/*printf("%s\n", token);*/
-		token_2 = strtok(NULL, TOKEN_DELIM);
-		if (strcmp(token, "push") == 0)
-			check_token(token_2, line_n);
-		if (token && token[0] != '#')
-			search_function(token, line_n, &head);
+		tokenize(line, &stack, line_n);
 		line_n++;
 	}
 	for (; count > 0; count--)
 		line--;
 	free(line);
-	free_stack(head);
+	free_stack(stack);
 	fclose(stream);
 	exit(EXIT_SUCCESS);
 }
