@@ -116,15 +116,15 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-		new->n = (*stack)->n;
-		new->next = NULL;
+		new->prev = NULL;
 		aux = *stack;
-		*stack = aux->next;
-		free(aux);
-		aux = *stack;
-		while (aux->next)
+		while (aux->next->next)
 			aux = aux->next;
-		aux->next = new;
-		new->prev = aux;
+		new->n = aux->next->n;
+		free(aux->next);
+		aux->next = NULL;
+		aux = *stack;
+		new->next = aux;
+		*stack = new;
 	}
 }
