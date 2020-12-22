@@ -10,6 +10,21 @@ int number = 0;
  **/
 int main(int argc, char *argv[])
 {
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	func_main(argv[1]);
+	exit(EXIT_SUCCESS);
+}
+/**
+ * func_main - function with main loop
+ * @filename: the name of the file
+ * Return: Nothing
+ */
+void func_main(char *filename)
+{
 	FILE *stream;
 	size_t len = 0;
 	ssize_t nread;
@@ -18,20 +33,15 @@ int main(int argc, char *argv[])
 	stack_s *stack = NULL;
 	int count = 0;
 
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	stream = fopen(argv[1], "r");
+	stream = fopen(filename, "r");
 	if (stream == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	while ((nread = getline(&line, &len, stream)) != EOF)
 	{
-		while (line[0] == 32)
+		while (line[0] == 32 || line[0] == 9)
 		{
 			count++;
 			line++;
@@ -41,15 +51,12 @@ int main(int argc, char *argv[])
 			line_n++;
 			continue;
 		}
-			
 		tokenize(line, &stack, line_n);
 		line_n++;
 	}
 	for (; count > 0; count--)
 		line--;
-
+	free(line);
 	free_stack(stack);
 	fclose(stream);
-	free(line);
-	exit(EXIT_SUCCESS);
 }
