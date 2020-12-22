@@ -102,7 +102,7 @@ void f_rotl(stack_s **stack, unsigned int line_number)
  **/
 void f_rotr(stack_s **stack, unsigned int line_number)
 {
-	stack_s *aux, *new;
+	stack_s *aux = NULL, *new = NULL;
 	int stack_len = 0;
 
 	(void)line_number;
