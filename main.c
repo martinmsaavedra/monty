@@ -1,5 +1,5 @@
 #include "monty.h"
-#define TOKEN_DELIM " \t\n\r"
+#define TOKEN_DELIM " \t\n\r "
 /* Number = global variable. */
 int number = 0;
 /**
